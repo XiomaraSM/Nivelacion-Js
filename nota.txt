@@ -1,0 +1,13 @@
+/* function siglo(año){
+   var siglo = parseInt((año - 1)/100) + 1;
+   return siglo;
+}
+var añoActual;
+añoActual = parseInt(prompt("Entrar año completo"));
+alert("Pertenece al siglo " + siglo(añoActual));
+ */
+function siglo (año) {
+  let siglo = parseInt ((año -1)/100) +1;
+  return siglo;
+}
+let añoActual

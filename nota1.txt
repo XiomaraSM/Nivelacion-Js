@@ -1,0 +1,378 @@
+//VARIABLES
+
+ /*1. Has hecho una compra y sabes el precio del producto y su iva.*/
+
+const precioProduct = 600;
+const IVA = 21;
+
+const result = precioProduct + (precioProduct * IVA) / 100;
+
+console.log("el precio total es" + result);
+
+// se crea la variable const (constante) la primera se declara precioProduct para poner el precio del producto; la segunda se declara IVA para poner el IVA, la tercera se declara result para dar el resultado, se crea la funcion result para que devuelva el resultado de la operacion del precio + el precio por el iva / 100
+
+/* 2. En este ejercicio debes escribir un programa que
+lea el nombre del usuario y salude con un "Hola" */
+
+
+let nombre = prompt("escribe tu nombre");
+
+console.log("hola" +" "+ nombre);
+alert ("Hola" + " " + nombre);
+
+// se escribe la variable const se declara nombre con el objeto prompt que pedira al usuario escribir el nombre y se agrega un alert dialogo que muestra al usuario un hola seguido del nombre escrito 
+
+/* 3. En este ejercicio vas a pedir al usuario que teclee tres
+números enteros */
+
+let num1 = parseInt(prompt("Teclea un numero entero"));
+let num2 = parseInt(prompt("Teclea un numero entero"));
+let num3 = parseInt(prompt("Teclea un numero entero"));
+let media = num1 + num2 + num3 / 3;
+console.log (media);
+alert("La media de los números es " + media);
+
+
+//se pone la variable se declara num1, num2 y num3 con la funcion parseint con el objeto prompt que pedira que el usuario teclee un numero entero, esto se hace 3 veces, luego se pone la variable const que devuelva resutado entre la suma de los tres numeros puestos por el usuario divididos entre tres, este le dara una alerta al usuario con el resultado 
+
+/* 4. Escribe un script que dado el número de comensales
+calcule las cantidades de ingredientes necesaria */
+const patata= 200;
+const persona = prompt ("cantidad de comensales"); 
+const kiloPatatas = patata * persona; 
+const papas = kiloPatatas/1000;
+const huevos = papas*5;
+const cebolla = papas*300;
+
+console.log ("necesitará " + kiloPatatas+ "gr de patatas"+ ", "+huevos + "huevos"+", " + cebolla +" gr de cebolla")
+
+alert ("necesitará " + papas+ "kg de patatas"+ ", "+huevos + "huevos"+", " + cebolla +" gr de cebolla");
+
+// se pone la variable const que se declara "patata" con el valor del dato inicial: por cada persona son 200gr de papa por persona, se crea la siguiente constante que multiplicara las papas por la cantidad de personas,  se divide este total en una nueva variable const declarada papas, se escribe la siguiente variable const declarada huevos que devuelve el resultado de la cantidad de huevos por kilogramo de papas esto se repite con la variable const para cebolla que devuelve el resultado la cantidad de cebolla por kilo de papas esto se vera reflejado en la consola y en el alert creado para mostrar al usuario 
+
+***********************************************************
+
+//CONDICIONALES 
+/*1.Se trata de escribir un script que diga si un número
+es par o es impar. */
+
+const numero = prompt("Introduce el número");
+
+const resultado = parImpar(numero);
+
+function parImpar(numero) {
+  if(numero % 2 == 0) {
+    return "par";
+  }
+  else {
+    return "impar";
+  }
+}
+
+console.log ("El número "+numero+" es "+resultado)
+alert("El número "+numero+" es "+resultado);
+
+// se crea la variable const declarada numero con el prompt (mensaje para que el usuario introduzca un numero entero), se crea la siguiente variable declarada resultado con el valor de parImpar del numero que introduce el usuario luego se crea la funcion parImpar con el parametro numero de la variable dentro de las llaves se pone la funcion con la condicion if (si) la variable numero operador modulo devuelve el resto de la division entre dos operandos ya que requiereque sus operandos sean enteros no nulos este determinara si es par se agrega la condicion alternativa else que cuando el resultado de la operacion sea un numero no entero es decir que no sea divisible entre 2 sera un numero impar |la funcion parImpar con el parametro de la variable numero se crea la condicional if (si) si el numero entero es divisible entre dos return (devolvera) el numero mas el texto par, si el numero no es divisible entre dos entonces devolvera (return) el numero mas el texto impar
+
+/*2. Este ejercicio dirigirá a los clientes a la barra de
+bebidas o a la de comidas, para ello el cliente puede
+pedir vino, cerveza,
+refresco, agua. Si pide un cerveza o vino se le dirige a
+la barra y si no pues se le dirige a la tienda */
+
+alert("seleccione del formulario una opcion de bebida");
+
+let seleccionar = document.querySelector("#barra");
+let parrafo = document.querySelector("#ir");
+
+seleccionar.addEventListener("change", establecerBebida);
+
+function establecerBebida() {
+  let eleccion = seleccionar.value;
+
+  if (eleccion === "vino") {
+    console.log(eleccion + "? " + "por favor dirijase a la barra");
+    parrafo.textContent = "por favor dirijase a la barra";
+  } else if (eleccion === "cerveza") {
+    console.log(eleccion + "? " + "por favor dirijase a la barra");
+    parrafo.textContent = "por favor dirijase a la barra";
+  } else if (eleccion === "refresco") {
+    console.log(eleccion + "? " + "por favor dirijase a la tienda");
+    parrafo.textContent = "por favor dirijase a la tienda";
+  } else if (eleccion === "agua") {
+    console.log(eleccion + "? " + "por favor dirijase a la tienda");
+    parrafo.textContent = "por favor dirijase a la tienda";
+  } else {
+    parrafo.textContent = " ";
+  }
+}
+
+// primero se crea un index html donde se agrega un label (etiqueta) con el texto elija una opcion, se creaun selector (select) con las diferentes opciones (option), donde podra elegir vino, cerveza, agua o refresco, solo podra elegir una, a cada opcion se crea un value (valor) con cada eleccion, vino, cerveza, agua y refresco para luego ser usado en javascript, se agrega una etiqueta (p) parrafo para darle al usuario la respuesta segun eleccion || en el codigo JAVASCRIPT se crea un alert(alerta) para que el usuario sepa que debe elegir una opcion, se crea la variable let declarada seleccionar y se trae al documento la etiqueta select de html, esto se repite con la variable let declarada parrafo para traer el elemeto p de html, se crea un metodo (addEvenListener) para la variable seleccionar con el evento de cambio (change) para la funcion establecerBebida que se creara despues, se crea la funcion con el nombre de establecerBebida, sin parametros entre parentesis con la declaracion de la variable let declarada eleccion con el valor de seleccionar con el metodo value (valor) y se crean las condicionales con la expresion (if) si eleccion es igualdad estricta a vino (esta palabra se extrae del value puesto para cada opcion, asi con cada opcion) cambiando la expresion (else if) respondiendo a si tambien elije el siguiente valor, solo podra escoger una, se declara dentro de las llaves la funcion con un console log para cada condicional que mostrara en consola la eleccion del usuario mas la respuesta de donde dirigirse, para la vista del usuario se llama la variable parrafo con la propiedad text content para agregar de respuesta segun la eleccion  
+
+/* 3. Vamos a convertir notas en niveles usando un if
+anidados. Notas menores de 5 suspende, 5-6
+aprobados, 7-8 notables, 9-10 sobresalientes*/
+
+alert("seleccione su calificación");
+
+let nota = document.querySelector("#notaselector");
+let parrafon = document.querySelector("#calificacion");
+
+nota.addEventListener("change", establecerNota);
+
+function establecerNota() {
+  let seleccion = nota.value;
+
+  if (seleccion === "5") {
+    console.log(seleccion + "= Suspende");
+    parrafon.textContent = "Suspende";
+  } else if (seleccion === "6") {
+    console.log(seleccion + "= Aprobado");
+    parrafon.textContent = "Aprobado";
+  } else if (seleccion === "7") {
+    console.log(seleccion + "= Notable");
+    parrafon.textContent = "Notable";
+  } else if (seleccion === "9") {
+    console.log(seleccion +  "= Sobresaliente");
+    parrafon.textContent = "Sobresaliente";
+  } else {
+    parrafon.textContent = " ";
+  }
+}
+
+//se crea un index con la etiqueta label para informar al usuario que elija calificacion, se crea un la etiqueta selector(select) con el identificador (id) nota selector, se crean las opciones 1-5, 5-6. 7-8, 9-10 cada una con un valor creado para cada opcion, se llama la etiqueta por el id con la variable nota a la que se le da el evento escuchar con el metodo de cambiar con la funcion establecer nota, se crea la funcion establecer nota con la variable seleccion con el valor del evento nota mas el valor se crea condicion anidada de if para cada eleccion y su correspondiente respuesta para el usuario se llama al parrafo con el identificador calificacion previamente establecido en la variable declarada parafon 
+
+
+**********************************************************
+//BUCLES FOR 
+
+/*1. Este script el usuario deberá teclear una letra y un
+número,
+y el programa mostrará una cadena formada por la
+letra repetida el número que haya tecleado.*/
+
+let letra = prompt("Escriba una letra o una palabra");
+let numerorep = parseInt(prompt("Teclea un numero"));
+
+for ( i=1; i <= numerorep; i++ ){
+    document.write (i+ " "+ letra + "<br>"); 
+}
+
+//ciclo for se escribe for (parentesis){llaves} dentro de los parentesis se declara la variable se puede poner cualquier nombre generalmente se pone i que su valor sea 1 desde donde empieza el contador, se crea la variable let para numerorep (cantidad de repeticiones del numero) que se pone en el prompt donde el usuario pone el numero y la variable declarada letra con el prompt escriba una letra que sera la que se repita, el ciclo for se define i=1, se dice que repita(mientras que), segun la variable numerorep que sera puesto por el usuario y se incrementa la variable i++ (si esto no se pone entonces sera infinito y se detendra el navegador) luego se dan las instrucciones que el metodo document.write (escriba en el documento) que empiece desde 1 escriba la letra y salte de linea, recuerda que el usuario define la cantidad de repeticiones del ciclo for cuando escribe en el promt un numero 
+
+/*2.Se quiere tener un contador de dos dígitos en base 5.
+El funcionamiento es simple: el dígito de la derecha
+irá aumentando y cuando pase de 4 su valor se pondrá
+a 0
+y el dígito de la izquierda se incrementa en 1. El
+contador debe deternerse cuando alcancemos el valor
+1:4*/
+
+let numIzq; 
+let numDer;
+
+for ( numIzq= 0; numIzq < 2; numIzq++ ){
+  for ( numDer= 0; numDer < 5; numDer++ ){
+    console.log (numIzq +" : " + numDer)
+    document.write (numIzq +":"+numDer+ "<br>")
+}
+}
+
+// se declaran dos variables una para el numero de la Izquierda con nombre numIzq y otro para la derecha con nombre numDer, se crea un primer ciclo para en numero de la izquierda y dentro del mismo se crea un segundo ciclo para el numero de la derecha, se imprime en la consola el primer valor, hasta que llegue a 1 ya que se definio que numIzq es menor a 2 y se suma el segundo ciclo for para la segunda variable al que se definio que su valor es menor a 4, para que se vea en la pantalla se usa la cadena de texto document.write y se agrega un salto de linea para que se vea de manera decendente
+
+
+/*3.Se trata de dibujar un triángulo con asteriscos. El
+usuario tecleará un valor entero,
+El programa escribirá con asteriscos tantas lineas
+como diga ese número. Cada linea estará
+formada por una serie de astericos tan larga como diga
+el número de línea en el que está.
+Para separar una linea de la siguiente en console o en
+alert debes usar "\n". En este ejercicio usa console.log.*/
+
+let numAsteriscos, repeticion,  increment, Asterisco;
+numASteriscos = parseInt(prompt("Escriba un número de del 1 al 79"));
+for ( increment = 0; increment < numASteriscos; increment++){
+     Asterisco=''
+     for(repeticion = 0; repeticion <= increment; repeticion++){
+         Asterisco += "*";
+        }
+     console.log( Asterisco+ "\n");
+     document.write (Asterisco+ "<br>")
+}
+//primero declarar las variables, increment para aumentar numeros, repeticion para el que repita los valores, luego la siguiente variable asterisco para que convierta los numeros en asteriscos, se crea el ciclo for el incremento comienza en 1, el incremento termina segun el numero definido por el usuario, este ciclo avanzara incrementando el valor hasta que reconozca el numero puesto por el usuario, dentro se crea otro bucle que imprimira la piramide, donde se ubica la variable repeticion comenzara desde 0; y se completa cuando llegue uno antes del increment el numero definido por el usuario, la repeticion aumentara imprimiendo el numero hasta llegar a la eleccion del usuario, dentro del ciclo se agrega la variable asterisco que convertira el se imprimira el documento con la variable increment que mostrara las repeticiones, fuera del segundo ciclo se imprime en el documento un salto de linea para que cada repeticion se vea el incremento de forma piramidal
+
+*****************************************************
+//BUCLES WHILE 
+
+/*1. Por ejemplo, en este bucle vamos a generar una lista con los 20 primeros números pares*/
+
+
+let numeroPar = 0;
+
+while (numeroPar <= 20) {
+  console.log (numeroPar + ",")
+  document.write(numeroPar + ",");
+  numeroPar += 2;
+}
+
+//se declara la variable numero par con valor a 0, se crea el bucle o ciclo while y se define dentro de parentesis que si el numero es menor o igual a 20 se agrega la instruccion dentro de llaves para que en la consola y en el documento imprima el numero par separado por una coma, para darle el numero par se pone la variable que vale cero y que agregue dos mas esto mediante la asignacion de adicion, cada dos numeros se evidenciara en la consola 
+
+/*2. Un ejemplo típico de bucle es averiguar si un
+número es primo, es decir, si solo es divisible por 1 y por sí mismo.*/
+
+ 
+ let numeroSolicitud = parseInt(prompt("¿Qué número quiere saber si es primo?"));
+ let divisor = 2;
+ let esPrimo = " Si";
+ 
+
+while (divisor < numeroSolicitud ){
+    if( numeroSolicitud % divisor == 0){
+      esPrimo = " No"
+       break;
+    }
+   divisor++;
+}
+console.log ("El numero "+ numeroSolicitud + esPrimo + " es primo")
+alert("El numero "+ numeroSolicitud + esPrimo + " es primo");
+
+// se crean la variable con el nombre numeroSolicitud para pedirle al usuario mediante un promt que escriba el numero este a su vez esta dentro de un parseInt para que el valor sea unicamente numeros, se crea la variable nombre divisor con el valor de 2 y la variable es primo con el valor "si" se crea el bucle while donde divisor comienza desde dos (esta declarado en la variable) se descarta el mismo numero dado por el usuario al darle menor se resta uno, se crea el if (con el numeroSolicitud el operador % que permite calcular si el resto de una division es 0) si es asi entonces el numero es primo, si no es asi no es primo, apenas se cumple esto se agrega un break que rompe el bucle para pasar al siguiente codigo, se agrega el divisor++ que es el que incrementa hasta llegar al numero puesto por el usuario en caso contrario el bucle sera infinito, se muestra el texto "el numero" mas el numero puesto por el usuario y este dira si es o no mas el texto "es primo", este resultado lo evidencia el usuario con el alert que es un mensaje de alerta para el usuario
+
+*****************************************************
+// BUCLE DO WHILE 
+
+/*1. Realiza un script que le pida al usuario que teclee la
+letra A (en mayúscula) y
+mientras no lo haga se lo vuelva a pedir. Usa un bucle
+do..while y la ventana alert para los mensajes*/
+
+let tecla = " ";
+do{
+    tecla = prompt("Escribe la letra A");
+}while (tecla != "A");
+alert("Lo lograste!");
+break;
+
+// se crea la variable tecla donde su valor es null "vacio" se crea la sentencia do que se ejecuta al menos una vez esta se reejecuta cada vez que la condicion se evalue verdadera se pone la condicion para que se re ejecute si es diferente a "A" si oprime "A" se termina ya que evalua que es VERDADERA
+
+*****************************************************
+//FUNCIONES 
+/*1. Crea una función que tenga dos argumentos: num1, num2, y que devuelva como resultado la suma de ambos números. Se supone que se usarán solo números válidos*/
+
+let num1 = parseInt(prompt("primer numero"))
+let num2 = parseInt(prompt("segundo numero"))
+
+function sumar (num1, num2) {
+  return (num1+num2)  
+  }console.log (num1+num2);
+  alert (num1+num2);
+  
+
+//se crea la variable number1 con un mensaje para que el usuario ponga el primer numero, se crea la segunda variable number2 con mensaje para numero dos, se crea la funcion sumar, number1,  number2 dentro se crea la sentencia return (devolver), para que el usuario pueda ver el resultado se crea el alert, para verlo en consola se muestra para sumar 
+
+/*2. Escribe una función que recibe como argumento un
+precio y el porcentaje de impuestos. La función
+devolverá el valor total a pagar, teniendo en cuenta
+que al precio se le descuenta un porcentaje del 10% si
+es mayor de 100 euros.*/
+
+let porcentaje = 0;
+let precioProducto = parseInt(prompt("precio del producto"));
+if (precioProducto < 100) {
+  porcentaje = parseInt(prompt("escriba el porcentaje"));
+}
+
+function pagar(precioProducto, porcentaje) {
+  if (precioProducto > 100) {
+    totalPagar = precioProducto - (precioProducto * 10) / 100;
+  }
+  let totalPagar = precioProducto + (precioProducto * porcentaje) / 100;
+  return totalPagar
+} 
+console.log("el valor total es" + pagar(precioProducto, porcentaje));
+alert("el valor total es" + pagar(precioProducto, porcentaje));
+
+//se crea una variable nombre porcentaje valor inicial a cero, se crea otra variable nombre precioProducto con un parseint que comprobara si el prompt es un numero (este promt pedira al usuario el precio del producto) se crea una condicion que evalue si el numero ingresado es menor a 100muestre el segundo prompt para pedirle al usuario el porcentaje, se crea la funcion de nombre pagar con valores precio del producto y el porcentaje se crea una condicion (if) si el precio del producto es mayor a 100 que realice la operacion de restar el 10% en caso de que sea menor realiza la nueva variable con valor Total a pagar, donde realiza la operacion entre el precio del producto y el porcentaje, estos valores deberan ser escritos por el usuario,dependiendo cual sea la respuesta se llama el resultado a la consola con un texto el total a pagar es: mas el resultado de la funcion pagar, tambien se crea un alert con el texto el valor total es: mas la funcion pagar con los valores de la funcion , se crea el return dentro de la funcion para que devuelva la respuesta que esperamos, sin esto no funciona
+
+/*3. Escribe una función que devuelva el siglo al que
+corresponde un año que se la pasa como argumento. El
+siglo 1 va del año 1 al 100, el siglo 2 va del 101 al 200…*/
+
+function siglo (año) {
+  let siglo = parseInt ((año - 1)/100) +1;
+  return siglo;
+}
+let año;
+año = parseInt (prompt ("escriba el año"))
+console.log (siglo(año));
+alert ("pertenece al siglo " + siglo(año));
+
+// escribimos la funcion siglo con valor de año {entre llaves} se escribe la variable con el nombre siglo con el valor numerico entero(parseInt) con la operacion de restarle 1 al año y dividirlo en 100 para eliminar la parte decimal al resutado se le agrega 1 este resultado se retorna a la funcion, fuera de esta funcion se crea la variable año, donde año sea igual a pedir dentro de un mensaje prompt al usuario que escriba el año y este a su vez retorne un numero (parse Int) para ver el resultado en consola se escribe la funcion para que el usuario pueda verlo se escribe el resultado de la funcion en un alert 
+
+*************************************************************************************
+//ARREGLOS 
+/*1. En este script deberás crear un array para guardar
+los nombres de los días de la semana, empezando por
+0 para el domingo. Para comprobar el funcionamiento
+pide al usuario un número entre 0 y 6 y devuelve el
+nombre del día. Se supone que el dato tecleado estará
+entre 0 y 6*/
+
+/* var dias = new Array(7), num;        
+dias[0] = "Domingo";
+dias[1] = "Lunes";
+dias[2] = "Martes";
+dias[3] = "Miércoles";
+dias[4] = "Jueves";
+dias[5] = "Viernes";
+dias[6] = "Sábado";
+num = parseInt(prompt("Número del día"));
+alert("El dia es "+dias[num]);
+ */
+
+let num = parseInt(prompt("Numero del 0 al 6 para saber el dia de la semana"));
+let dias = [num];
+
+dias[0] = "Domingo";
+dias[1] = "Lunes";
+dias[2] = "Martes";
+dias[3] = "Miercoles";
+dias[4] = "Jueves";
+dias[5] = "Viernes";
+dias[6] = "Sabado";
+
+alert("El dia es " + dias[num]);
+
+// primero se crea la variable num con parseInt (para que regrese solo numeros) con el prompt que sera el mensaje visible para el usuario, luego se crea la variable con nombre dias se le asigna de dato num (el dato que pone el usuario) para acceder a la variable se pone el nombre del arreglo se abre corchetes para acceder al elemento definido por el numero inicial 0 que sera igual a domingo, asi con cada dia de la semana en incremento, se crea un alert con el mensaje el dia es se agrega el arreglo dias con objeto num que dara como resultado el arreglo elegido por el usuario, el alcance del arreglo es igual a 6, si elige un numero fuera de este alcance se mostrara undefined, que dira que no hay nada en esa variable
+
+/*2. Escribe una función que determina si la letra que se
+le pasa como argumento se encuentra contenida
+dentro de un array de letras que se le pasa como
+segundo argumento.
+Se trata de resolverlo sin usar métodos del objeto
+array, solo el dato tipo array.*/
+
+
+let letra = prompt("escriba una letra");
+let letras = ["b", "c","d", "e"];
+
+
+function existeEn (letra, letras) {
+  let busqueda = false; 
+  for (let i =0; i <letras.length; i++) {
+    if (letras[i] ===letra) {
+      busqueda = true;
+      break;
+    } 
+  }
+   if (busqueda) {
+      alert ("La letra se encuentra en el arreglo");
+    } else {
+      alert ("la letra no se encuentra en el arreglo");
+    }
+}
+existeEn (letra, letras);
+
+//creamos la variable letra con un prompt ("escriba una letra"), para que el usuario sea quien elija la letra a buscar, luego se crea la variable letras, que sera el arreglo donde se buscara si la letra anteriormente puesta se encuentra. Se crea una funcion llamada ExisteEn con los argumentos (las variables anteriormente creadas) se abre llaves y dentro se crea una variable llamada busqueda con el valor boleano de false, y se crea un bucle for con la condicion de if que verifica si la letra se encuentra en el arreglo estara bien esta verifica la variale busqueda sea true, para evitar que pare el bucle o se repita infinitamente se crea un break para salir del bucle para evitar que siga buscando, este braek por lo tanto reflejara si se encontro o no la letra, el if se utiliza en esta funcion para verificar si la letra ha sido encontrada dentro del arreglo, dentro se crea un alert para informar al usuario que ha sido encontrada, se crea else si la busqueda no ha sido encontrada creara un alert que informe al usuario que no ha sido encontrada la letra 
+
