@@ -2,6 +2,7 @@
 
 Este repositorio contiene una serie de ejercicios para nivelar tus habilidades en JavaScript. Los ejercicios incluyen variables, condicionales, bucles for, while y do-while, funciones y arreglos. Cada ejercicio se encuentra en un archivo .txt separado, y se puede probar en un archivo .js.
 Requisitos
+### NOTA: No tiene vista previa, para ver los resultados clona o descarga el repositorio 
 
 ## Antes de empezar, necesitarás tener instalado lo siguiente:
 
